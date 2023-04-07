@@ -44,8 +44,8 @@ class Ticket(models.Model):
         FIRST = "First", "First"
 
     flight = models.ForeignKey(Flight, on_delete=models.CASCADE)
-    passenger = models.ForeignKey('Passenger', on_delete=models.CASCADE)
+    # passenger = models.ForeignKey('Passenger', on_delete=models.CASCADE)
     type = models.CharField(max_length=10, choices=TicketTypeChoices.choices)
 
     def __str__(self):
-        return f"{self.flight} - {self.passenger}"
+        return f"{self.flight} - {self.type}"
