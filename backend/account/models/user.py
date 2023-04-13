@@ -51,17 +51,4 @@ class User(AbstractUser):
         return self.email
 
 
-class Employee(User):
-    class Meta:
-        db_table = 'employee'
 
-    def __str__(self):
-        return self.email
-
-
-class Passenger(User):
-    class Meta:
-        db_table = 'passenger'
-
-    def __str__(self):
-        return self.email
