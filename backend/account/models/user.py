@@ -33,9 +33,14 @@ class EmailAccountManager(UserManager):
 
 
 class User(AbstractUser):
+    class UserTypeChoices(models.TextChoices):
+        EMPLOYEE = 'EMPLOYEE', 'Employee'
+        PASSENGER = 'PASSENGER', 'Passenger'
+
     id = models.AutoField(primary_key=True)
     username = models.NOT_PROVIDED
     email = models.EmailField('Email Address', unique=True)
+    type = models.CharField(max_length=10, choices=UserTypeChoices.choices, default=UserTypeChoices.PASSENGER)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
@@ -45,3 +50,18 @@ class User(AbstractUser):
     def __str__(self):
         return self.email
 
+
+class Employee(User):
+    class Meta:
+        db_table = 'employee'
+
+    def __str__(self):
+        return self.email
+
+
+class Passenger(User):
+    class Meta:
+        db_table = 'passenger'
+
+    def __str__(self):
+        return self.email
