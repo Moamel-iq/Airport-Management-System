@@ -1,7 +1,11 @@
-from backend.account.models import User
+from backend.account.models import EmailAccount
+from django.db import models
 
 
-class Employee(User):
+class Employee(EmailAccount):
+    address = models.CharField(max_length=256, null=True, blank=True)
+    salary = models.IntegerField( null=True, blank=True)
+
     class Meta:
         db_table = 'employee'
 

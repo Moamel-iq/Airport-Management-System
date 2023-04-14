@@ -1,0 +1,5 @@
+django==4.2
+pillow==9.5.0
+django-jazzmin==2.6.0
+django-ninja==0.21.0
+python-jose==3.3.0

@@ -65,3 +65,8 @@ class PriceTicket(models.Model):
 
     def __str__(self):
         return f"{self.flight} - {self.type}"
+
+
+class Luggage(models.Model):
+    passenger = models.ForeignKey(Passenger, on_delete=models.CASCADE)
+    flight = models.ForeignKey(Flight, on_delete=models.CASCADE)
