@@ -5,6 +5,7 @@ from backend.account.models import Passenger
 
 class Airport(models.Model):
     name = models.CharField(max_length=100)
+    description = models.CharField(max_length=256,null=True,blank=True)
     code = models.CharField(max_length=6)
     city = models.CharField(max_length=100)
     airport_plane_capacity = models.IntegerField()
@@ -70,3 +71,5 @@ class PriceTicket(models.Model):
 class Luggage(models.Model):
     passenger = models.ForeignKey(Passenger, on_delete=models.CASCADE)
     flight = models.ForeignKey(Flight, on_delete=models.CASCADE)
+
+

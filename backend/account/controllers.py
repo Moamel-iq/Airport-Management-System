@@ -100,4 +100,4 @@ def update_passenger(request, user_in: AccountUpdateIN):
         user.address = user_in.address
 
     user.save()
-    return response(HTTPStatus.OK,user)
+    return response(HTTPStatus.OK, user)

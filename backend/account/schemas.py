@@ -44,3 +44,5 @@ class PasswordChange(Schema):
     old_password: str
     new_password1: str
     new_password2: str
+
+
